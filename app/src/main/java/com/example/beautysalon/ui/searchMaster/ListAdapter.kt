@@ -3,11 +3,13 @@ package com.example.beautysalon.ui.searchMaster
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.beautysalon.R
+import com.example.beautysalon.interfaces.OnItemClickListener
 
-class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+class ListAdapter(private val onItemClickListener: OnItemClickListener) : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun getItemCount() = 2
 
@@ -23,16 +25,18 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 //        holder.city?.text = list[position]
-//
-//        holder.cardView.setOnClickListener {
-//            onItemClickListener.onItemClicked(
-//                position,
-//                list[position]
-//            )
-//        }
+
+        holder.button.setOnClickListener {
+            onItemClickListener.onItemClicked(
+                position,
+                1
+            //list[position]
+            )
+        }
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val button: Button = itemView.findViewById(R.id.buttonSearchMaster)
         val cardView: CardView = itemView.findViewById(R.id.cardView)
     }
 }

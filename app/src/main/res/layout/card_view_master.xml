@@ -29,7 +29,7 @@
             android:text="Иванова Иван Ивановна"
             android:textColor="#263238"
             android:textSize="14sp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toTopOf="@+id/buttonSearchMaster"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageViewProfile"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +46,7 @@
             app:layout_constraintTop_toBottomOf="@+id/name" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonSearchMaster"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Записаться"

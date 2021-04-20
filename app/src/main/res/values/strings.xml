@@ -4,4 +4,5 @@
     <string name="title_dashboard">Выбор мастера</string>
     <string name="title_notifications">Профиль</string>
     <string name="title_activity_login">Вход</string>
+    <string name="ate_fragment">Выбор времени</string>
 </resources>
