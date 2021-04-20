@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BeautySalon</string>
+    <string name="title_home">Выбор услуги</string>
+    <string name="title_dashboard">Выбор мастера</string>
+    <string name="title_notifications">Профиль</string>
+    <string name="title_activity_login">Вход</string>
+</resources>
