@@ -6,106 +6,75 @@
     android:layout_height="match_parent"
     tools:context=".ui.record.RecordFragment">
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:selectedWeekBackgroundColor="#ff0000"
-        android:weekNumberColor="#0000ff"
-        android:weekSeparatorLineColor="#00ff00"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRecord"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <CheckBox
-        android:id="@+id/time1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:text="8:00"
-        app:layout_constraintEnd_toStartOf="@+id/time2"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".ui.record.RecordFragment">
 
-    <CheckBox
-        android:id="@+id/time2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8:00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/time3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:text="8:00"
-        app:layout_constraintStart_toEndOf="@+id/time2"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/calendarView">
 
-    <CheckBox
-        android:id="@+id/time4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:text="8:00"
-        app:layout_constraintEnd_toStartOf="@+id/time5"
-        app:layout_constraintTop_toBottomOf="@+id/time2" />
+            <RadioButton
+                android:id="@+id/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00" />
 
-    <CheckBox
-        android:id="@+id/time5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8:00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time2" />
+            <RadioButton
+                android:id="@+id/time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00" />
 
-    <CheckBox
-        android:id="@+id/time6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:text="8:00"
-        app:layout_constraintStart_toEndOf="@+id/time5"
-        app:layout_constraintTop_toBottomOf="@+id/time2" />
+            <RadioButton
+                android:id="@+id/time3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00" />
 
-    <CheckBox
-        android:id="@+id/time7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="60dp"
-        android:layout_marginRight="60dp"
-        android:text="8:00"
-        app:layout_constraintEnd_toStartOf="@+id/time8"
-        app:layout_constraintTop_toBottomOf="@+id/time5" />
+            <RadioButton
+                android:id="@+id/time4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00" />
 
-    <CheckBox
-        android:id="@+id/time8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="8:00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time5" />
+            <RadioButton
+                android:id="@+id/time5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00" />
 
-    <CheckBox
-        android:id="@+id/time9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginLeft="60dp"
-        android:text="8:00"
-        app:layout_constraintStart_toEndOf="@+id/time8"
-        app:layout_constraintTop_toBottomOf="@+id/time5" />
+            <RadioButton
+                android:id="@+id/time6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00" />
+            </RadioGroup>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <Button
+        android:id="@+id/buttonRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"

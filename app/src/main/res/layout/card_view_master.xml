@@ -13,29 +13,31 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageViewProfile"
+            android:id="@+id/imageView"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:layout_margin="8dp"
             android:src="@android:drawable/sym_def_app_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="8dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:text="Иванова Иван Ивановна"
             android:textColor="#263238"
             android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/buttonSearchMaster"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewProfile"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/father"
+            android:id="@+id/shortSkills"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ресницы / Брови / Шугаринг"
@@ -49,10 +51,10 @@
             android:id="@+id/buttonSearchMaster"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Записаться"
             android:layout_marginHorizontal="8dp"
+            android:text="Записаться"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageViewProfile" />
+            app:layout_constraintStart_toEndOf="@+id/imageView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

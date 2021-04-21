@@ -20,65 +20,83 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <CheckBox
+            <RadioGroup
+                android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Маникюр" />
+                android:layout_height="wrap_content" >
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Маникюр + гель-лак" />
+                <RadioButton
+                    android:id="@+id/check1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Маникюр" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Наращивание" />
+                <RadioButton
+                    android:id="@+id/check2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Маникюр + гель-лак" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Коррекция" />
+                <RadioButton
+                    android:id="@+id/check3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Наращивание" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Наращивание ресниц (классика)" />
+                <RadioButton
+                    android:id="@+id/check4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Коррекция" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Наращивание  ресниц (3D)" />
+                <RadioButton
+                    android:id="@+id/check5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Наращивание ресниц (классика)" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="RF-лифтинг" />
+                <RadioButton
+                    android:id="@+id/check6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Наращивание  ресниц (3D)" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Кавитация" />
+                <RadioButton
+                    android:id="@+id/check7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="RF-лифтинг" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Липолиз" />
+                <RadioButton
+                    android:id="@+id/check8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Кавитация" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Вакуум" />
+                <RadioButton
+                    android:id="@+id/check9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Липолиз" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Медовый массаж" />
+                <RadioButton
+                    android:id="@+id/check10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Вакуум" />
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Карбоновый пилинг" />
+                <RadioButton
+                    android:id="@+id/check11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Медовый массаж" />
+
+                <RadioButton
+                    android:id="@+id/check12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Карбоновый пилинг" />
+            </RadioGroup>
         </LinearLayout>
     </ScrollView>
 

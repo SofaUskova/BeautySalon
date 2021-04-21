@@ -1,60 +1,95 @@
 package com.example.beautysalon.ui.record
 
+import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.CalendarView
+import android.widget.RadioButton
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.findFragment
+import androidx.navigation.fragment.NavHostFragment
 import com.example.beautysalon.R
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RecordFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RecordFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var myView: View
+    private lateinit var sharedPreferences: SharedPreferences.Editor
+    private lateinit var date: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_record, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RecordFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RecordFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        myView = view
+
+        val recordsTime: List<String> = arguments?.get("master") as List<String>
+        getCheckBox(R.id.time1).text = recordsTime[0]
+        getCheckBox(R.id.time2).text = recordsTime[1]
+        getCheckBox(R.id.time3).text = recordsTime[2]
+        getCheckBox(R.id.time4).text = recordsTime[3]
+        getCheckBox(R.id.time5).text = recordsTime[4]
+        getCheckBox(R.id.time6).text = recordsTime[5]
+
+
+        getDate()
+        initListeners()
     }
+
+    private fun initListeners() {
+        myView.findViewById<Button>(R.id.buttonRecord).setOnClickListener {
+            sharedPreferences = requireContext().getSharedPreferences(
+                "UserPreference",
+                AppCompatActivity.MODE_PRIVATE
+            ).edit()
+
+            sharedPreferences.apply {
+                when {
+                    isChecked(R.id.time1) -> putString("TIME", getStringTime(R.id.time1))
+                    isChecked(R.id.time2) -> putString("TIME", getStringTime(R.id.time2))
+                    isChecked(R.id.time3) -> putString("TIME", getStringTime(R.id.time3))
+                    isChecked(R.id.time4) -> putString("TIME", getStringTime(R.id.time4))
+                    isChecked(R.id.time5) -> putString("TIME", getStringTime(R.id.time5))
+                    isChecked(R.id.time6) -> putString("TIME", getStringTime(R.id.time6))
+                    else -> putString("TIME", getStringTime(R.id.time1))
+                }
+            }.apply()
+
+            NavHostFragment.findNavController(myView.findFragment()).navigate(
+                R.id.action_recordFragment_to_profileFragment
+            )
+
+            Toast.makeText(requireContext(), "Вы звписались к мастеру на ${getStringTime(R.id.time1)}", Toast.LENGTH_SHORT)
+                .show()
+        }
+    }
+
+    private fun getStringTime(check: Int) = "$date, ${getCheckBox(check).text}"
+
+
+    private fun getDate() {
+        val calendarView = myView.findViewById<CalendarView>(R.id.calendarView)
+        val dateFormat: DateFormat = SimpleDateFormat("dd.M", Locale.getDefault())
+        date = dateFormat.format(Date())
+
+        calendarView.setOnDateChangeListener { _, _, month, dayOfMonth ->
+            date = "$dayOfMonth, ${month + 1}"
+        }
+    }
+
+    private fun getCheckBox(check: Int) = myView.findViewById<RadioButton>(check)
+
+    private fun isChecked(check: Int) = getCheckBox(check).isChecked
 }
